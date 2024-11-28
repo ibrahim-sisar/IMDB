@@ -34,41 +34,4 @@ if __name__ == '__main__':
     app.run()
 
 
-# if not data:
-#     print("No such movie found.")
-#     exit(1)
-
-
-
-# if len(data) > 0:
-
-#     for i in range(len(data)):
-#         print(f"{i+1}.{data[i]['title']} ({data[i]['year']}) rating:{data[i]['rating']}")
-#     print()
-#     movie_choice = get_int("Choose movie index: ")
-#     print()
-#     print("="*20)
-#     print(f"movie title: {data[movie_choice-1]['title']}")
-#     print(f"movie year:  {data[movie_choice-1]['year']}")
-#     print(f"movie rating:  {data[movie_choice-1]['rating']}")
-#     print(f"movie votes:  {data[movie_choice-1]['votes']}\n")
-#     print("stars\n")
-
-    
-#     data2=db.execute("SELECT name,birth FROM stars,people WHERE movie_id = ? AND person_id = id;",data[movie_choice-1]['id'])
-#     if not data2:
-#         print("No star name mentioned")
-#     else:
-#         for i in data2:
-#             print(f"{i['name']} birth({i['birth']})")
-    
-#     print("\nDirector\n")
-#     data3=db.execute("SELECT name,birth FROM directors,people WHERE movie_id =? AND person_id = id;",data[movie_choice-1]['id'])
-#     if not data3:
-#         print("No director name mentioned")
-#     else:     
-#         for i in data3:
-#             print(f"{i['name']} birth({i['birth']})")
-#     print()
-#     print("="*20)
 
