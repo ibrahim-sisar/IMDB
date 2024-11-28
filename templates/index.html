@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDB movies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body >
+
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Search for a movie</h1>
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <form method="get" id="form">
+                    <div class="input-group">
+                        <form method="get">
+                        
+                        <input type="text" autofocus class="form-control" value="" placeholder="Search for movie name..." name="search" id="search" required>
+                        
+                        <!-- <input type="text" autofocus class="form-control"  placeholder="ابحث عن اسم صديق..." name="search" id="search" required>
+                         -->
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div  class="card-header bg-primary text-white">
+                Search results
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    
+                    {% if search != '' and data%}
+                        {% for movies in data %}
+                            <a href="{{ url_for('movie',movie_id=movies['id'])}}" style="text-decoration: none;"><li  class="list-group-item list-group-item-action">{{movies['title']}}</li></a>
+                        {% endfor %}
+                    {% else %}
+                       <p class="text-muted text-center mt-3">لا توجد نتائج للعرض.</p>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

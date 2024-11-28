@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Data</title>
+  <!-- إضافة Bootstrap من CDN -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding: 30px;
+    }
+    .card {
+      border-radius: 10px;
+    }
+    .movie-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #f1f1f1;
+    }
+    .movie-details {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .movie-rating {
+      font-size: 1.3rem;
+      color: #00ff15;
+    }
+    .movie-info {
+      font-size: 1.2rem;
+      color: #6c757d;
+    }
+    .stars-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style-type: none;
+      padding: 0;
+    }
+    .stars-list li {
+      font-size: 1.3rem;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h3 class="movie-title">movie title: "{{data[0]['title']}}"</h3>
+      </div>
+      <div class="card-body">
+        <h4 class="movie-details">movie year: <span class="movie-info">{{data[0]['year']}}</span></h4>
+        <h4 class="movie-details">movie rating: <span class="movie-rating">{{data[0]['rating']}} / 10</span></h4>
+        <h4 class="movie-details">votes: <span class="movie-info">{{data[0]['votes']}}</span></h4>
+        <h4 class="movie-details">stars :</h4>
+        <ul class="stars-list list-group">
+          {% if data2 %}
+            {% for stars in data2 %}
+              <li class="list-group-item">{{stars['name']}} birth({{stars['birth']}})</li>
+            {% endfor %}
+          {% else %}
+              <li class="list-group-item">No star name mentioned</li>
+          {% endif %}
+        </ul>
+        <h4 class="movie-details">director :</h4>
+        <ul class="stars-list">
+          {% if data3 %}
+            {% for director in data3 %}
+              <li>{{director['name']}} birth({{director['birth']}})</li>
+            {% endfor %}
+          {% else %}
+              <li>No director name mentioned</li>
+          {% endif %}
+        </ul>
+        <a href="{{url_for('index')}}"><button type="submit" class="btn btn-primary">back</button></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- إضافة مكتبة Bootstrap JavaScript من CDN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
